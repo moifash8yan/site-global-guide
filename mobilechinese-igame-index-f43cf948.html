@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次收藏 · 爱游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f2f5;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            padding: 2rem 1.2rem;
+        }
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        /* hero 简短开场 */
+        .hero {
+            text-align: left;
+            margin-bottom: 2.8rem;
+        }
+        .hero .kicker {
+            font-size: 0.9rem;
+            letter-spacing: 0.4px;
+            color: #6b7280;
+            border-left: 3px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #111827;
+        }
+        .hero p {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #374151;
+            max-width: 700px;
+        }
+        /* 卡片系统 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 2.2rem 0 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 550;
+            margin-bottom: 0.8rem;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-title .icon {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        .card p, .card li {
+            color: #374151;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            margin-top: 0.6rem;
+        }
+        .card ul li {
+            position: relative;
+            padding-left: 1.1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex: 0 0 auto;
+        }
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: 700;
+        }
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+            margin: 0.6rem 0 0.2rem;
+        }
+        .features-list .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: #1f2937;
+        }
+        .features-list .item .mark {
+            color: #3b82f6;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .inline-link {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #bfdbfe;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .inline-link:hover {
+            border-bottom-color: #2563eb;
+            color: #1d4ed8;
+        }
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d1d5db;
+            font-size: 0.9rem;
+            color: #6b7280;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .footer-note a {
+            color: #4b5563;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .footer-note a:hover {
+            border-color: #6b7280;
+            color: #1f2937;
+        }
+
+        /* 响应式细调 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+            .footer-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* 温和点缀 */
+        .scene-tip {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            border-left: 4px solid #93c5fd;
+            font-size: 0.95rem;
+            color: #1e293b;
+        }
+        .scene-tip strong {
+            font-weight: 550;
+            color: #1e3a5f;
+        }
+        .faq-mini {
+            margin: 0.8rem 0 0.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .faq-mini .qa {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .faq-mini .qa .q {
+            font-weight: 550;
+            color: #1f2937;
+            white-space: nowrap;
+        }
+        .faq-mini .qa .a {
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 简短开场 -->
+    <div class="hero">
+        <div class="kicker">· 再次记下 ·</div>
+        <h1>熟悉的地方，总有新发现</h1>
+        <p>有些站点值得反复回来。收藏夹里总有一个位置，留给常更新的内容。这次回到这里，或许和上次又有不同。</p>
+    </div>
+
+    <!-- 承接段落：回顾与持续关注 -->
+    <div class="card">
+        <div class="card-title"><span class="icon">↺</span> 为什么值得再次收藏</div>
+        <p>两年前偶然打开 <a href="https://mobilechinese-igame.com" class="inline-link">爱游戏</a>，那时只是随手浏览。后来每隔几周再回去，发现栏目在调整，专题在更新，连版式都更干净了。一个始终在迭代的站点，值得被持续关注——不一定要天天登录，但放进书签栏，偶尔回来翻翻，总能有收获。</p>
+        <p style="margin-top: 0.6rem;">从游戏资讯到评测随笔，从社区讨论到专题归档，内容不算庞杂，但每篇都有编辑的取舍。对于习惯深度阅读而非信息轰炸的人来说，这种节奏刚好。</p>
+    </div>
+
+    <!-- 特点列表（差异化卡片） -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-title"><span class="icon">▸</span> 内容特点 · 三个侧面</div>
+            <div class="features-list">
+                <div class="item"><span class="mark">01</span> 评测不拘泥于评分，侧重游玩体验与设计思路</div>
+                <div class="item"><span class="mark">02</span> 资讯筛选克制，不堆砌快讯，只选有讨论价值的话题</div>
+                <div class="item"><span class="mark">03</span> 专题常以开发者视角切入，偶尔附带幕后素材</div>
+            </div>
+            <div class="scene-tip">
+                <strong>使用场景举例</strong>：周末想找一款小众游戏，翻翻评测栏目；或者通勤时看一篇行业观察，篇幅不长，刚好读完。
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><span class="icon">◈</span> 持续关注的理由</div>
+            <ul>
+                <li>每月更新 4–6 篇原创内容，不会造成信息过载</li>
+                <li>文章末尾常附延伸阅读链接，便于深入探索</li>
+                <li>社区评论氛围平和，编辑会参与讨论</li>
+                <li>没有弹窗广告和自动播放视频</li>
+            </ul>
+            <div style="margin-top: 1rem; font-size: 0.95rem; color: #374151;">
+                如果你之前收藏过 <a href="https://mobilechinese-igame.com" class="inline-link">爱游戏</a> 但很久没回去，现在打开也许会惊讶于它的变化——界面更轻，内容更聚焦。
+            </div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ 摘要风格 -->
+    <div class="card" style="background: #fafbfc;">
+        <div class="card-title"><span class="icon">❖</span> 关于回访 · 几点说明</div>
+        <div class="faq-mini">
+            <div class="qa"><span class="q">书签失效怎么办？</span><span class="a">直接搜索“爱游戏”或使用主页链接即可重新找到。</span></div>
+            <div class="qa"><span class="q">内容更新频率？</span><span class="a">通常每周 1–2 次，专题和评测不定期。</span></div>
+            <div class="qa"><span class="q">适合什么样的读者？</span><span class="a">对游戏设计、独立作品、行业趋势感兴趣的玩家。</span></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #4b5563;">把 <a href="https://mobilechinese-igame.com" class="inline-link">爱游戏</a> 放进收藏夹，不需要每天都打开，但每次回来都不会失望。简洁、有料、没有噪音——这是它值得被记住的理由。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>偶尔回访 · 常看常新</span>
+        <span><a href="https://mobilechinese-igame.com" style="border-bottom: none;">爱游戏</a></span>
+    </div>
+</div>
+</body>
+</html>
